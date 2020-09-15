@@ -60,7 +60,7 @@ void loop()
 
   // update color and brightness
   CRGB color = clerp(CRGB::White, CRGB::Blue, colorValue);
-  float brightness = lerp(MIN_BRIGHTNESS, MAX_BRIGHTNESS, brightValue) * 255;
+  float brightness = lerp(MIN_BRIGHTNESS, MAX_BRIGHTNESS, brightValue);
 
 
   // "SLOTS"
@@ -105,6 +105,6 @@ void loop()
 
   // update the color and brightness
   for (uint8_t i = 0; i < NUM_LEDS; i++) leds[i] = color;
-  FastLED.setBrightness(brightness);
+  FastLED.setBrightness(brightness * 255);
   FastLED.show();
 }
